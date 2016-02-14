@@ -1,0 +1,13 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /quizz/:sourceLang          controllers.Quiz.quizz(sourceLang: play.api.i18n.Lang, targetLang: play.api.i18n.Lang)
+
+POST    /quizz/:sourceLang/check/:word  controllers.Quiz.check(sourceLang: play.api.i18n.Lang, targetLang: play.api.i18n.Lang, word, translation)
+
+PUT     /import/word/:sourceLang/:word/:targetLang/:translation        controllers.Import.importWord(sourceLang: play.api.i18n.Lang, targetLang: play.api.i18n.Lang, word, translation)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
